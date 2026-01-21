@@ -64,6 +64,7 @@ if(response.data.message=== 'all question'){
         {
             data.map((all,index)=>(
                 <div  className="problem-card" key={index}>
+                    <span className="problem-number"> {index + 1}.</span>
                     <button onClick={()=>handleTitle(all)}>{all?.title}</button>
                     <span>{all.difficulty}</span>
 

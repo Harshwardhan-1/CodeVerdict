@@ -1,44 +1,50 @@
 .problem-page {
-  min-height: 97vh;
-  background: #0f172a;
-  color: white;
-  padding: 25px;
-  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: #f6f8fb;
+  padding: 20px 40px;
+  font-family: "Segoe UI", sans-serif;
 }
+
 
 
 .problem-header {
   display: flex;
-  gap: 25px;
-  padding: 16px 25px;
-  background: #020617;
-  border-radius: 10px;
+  gap: 15px;
   margin-bottom: 30px;
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.problem-header h2 {
+.problem-header button {
+  border: none;
+  background-color: transparent;
   font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  color: #cbd5e1;
-  font-weight: 500;
+  color: #444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
 }
 
-.problem-header h2:hover {
-  color: #38bdf8;
+.problem-header button:hover {
+  background-color: #e9eefc;
+  color: #3b5bdb;
 }
+
 
 
 .problem-page h2 {
-  text-align: center;
   margin-bottom: 20px;
-  color: #38bdf8;
-  letter-spacing: 1px;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 
 .problem-list {
-  max-width: 900px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -46,94 +52,113 @@
 
 
 .problem-card {
-  background: #020617;
-  border: 1px solid #1e293b;
+  background-color: #ffffff;
+  padding: 18px 22px;
   border-radius: 10px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0;
-  overflow: hidden;
-  transition: 0.25s ease;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  transition: 0.25s;
+  border-left: 5px solid transparent;
 }
-
-
 
 .problem-card:hover {
-  border-color: #38bdf8;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
+
 
 
 .problem-card button {
-  width: 100%;
-  text-align: left;
-  padding: 16px 22px;
-  background: transparent;
+  background: none;
   border: none;
-  color: #e5e7eb;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #2c3e50;
   cursor: pointer;
-  transition: 0.25s;
+  text-align: left;
 }
 
 .problem-card button:hover {
-  background: rgba(56, 189, 248, 0.08);
-  color: #38bdf8;
+  color: #2563eb;
+  text-decoration: underline;
 }
 
 
-@media (max-width: 650px) {
+.problem-card span {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.problem-card span:contains("Easy") {
+  background-color: #e7f9ef;
+  color: #16a34a;
+}
+
+.problem-card span:contains("Medium") {
+  background-color: #fff4e5;
+  color: #d97706;
+}
+
+.problem-card span:contains("Hard") {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+
+@media (max-width: 768px) {
+  .problem-page {
+    padding: 15px;
+  }
+
   .problem-header {
     flex-wrap: wrap;
-    gap: 15px;
   }
 
-  .problem-card button {
-    font-size: 15px;
-    padding: 14px 18px;
+  .problem-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
 
-
-
-
-
-.problem-header button {
-  background: transparent;
-  border: 1px solid #1e293b;
-  color: #cbd5e1;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
+.problem-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.problem-header button:hover {
-  background: rgba(56, 189, 248, 0.12);
-  color: #38bdf8;
-  border-color: #38bdf8;
-  transform: translateY(-1px);
-}
-
-.problem-header button:active {
-  transform: scale(0.97);
-}
-
-.problem-header button.active {
-  background: #38bdf8;
-  color: #020617;
-  border-color: #38bdf8;
-  font-weight: 600;
+.problem-number {
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b7280;
+  min-width: 25px;
 }
 
 
-@media (max-width: 650px) {
-  .problem-header button {
-    padding: 8px 14px;
-    font-size: 13px;
-  }
+.difficulty {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.difficulty.easy {
+  background-color: #e7f9ef;
+  color: #16a34a;
+}
+
+.difficulty.medium {
+  background-color: #fff4e5;
+  color: #d97706;
+}
+
+.difficulty.hard {
+  background-color: #fee2e2;
+  color: #dc2626;
 }
