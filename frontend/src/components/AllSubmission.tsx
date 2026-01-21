@@ -12,7 +12,7 @@ export default function AllSubmission(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-                const response=await axios.get('http://localhost:5000/api/submit/allSubmission',{withCredentials:true});
+                const response=await axios.get('https://codeverdict-backend.onrender.com/api/submit/allSubmission',{withCredentials:true});
                 setData(response.data.data);
             }catch(err){
                 console.log(err);

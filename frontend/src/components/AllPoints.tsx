@@ -11,7 +11,7 @@ export default function AllPoints(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-                const response=await axios.get('http://localhost:5000/api/submit/allPoints',{withCredentials:true});
+                const response=await axios.get('https://codeverdict-backend.onrender.com/api/submit/allPoints',{withCredentials:true});
                 setData(response.data.data);
             }catch(err){
                 console.log(err);

@@ -20,7 +20,7 @@ export default function ProblemPage(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-const response=await axios.get('http://localhost:5000/api/newQuestion/seeAllQuestion',{withCredentials:true});
+const response=await axios.get('https://codeverdict-backend.onrender.com/api/newQuestion/seeAllQuestion',{withCredentials:true});
 if(response.data.message=== 'all question'){
     setData(response.data.data);
 } 

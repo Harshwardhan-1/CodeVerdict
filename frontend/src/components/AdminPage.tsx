@@ -16,7 +16,7 @@ export default function AdminPage(){
     e.preventDefault();
     const send={title,description,constraint,sampleInput,sampleOutput,difficulty,topic};
     try{
-        const response=await axios.post('http://localhost:5000/api/newQuestion/addQuestion',send,{withCredentials:true});
+        const response=await axios.post('https://codeverdict-backend.onrender.com/api/newQuestion/addQuestion',send,{withCredentials:true});
         if(response.data.message=== 'question created successfully'){
             alert('question created successfull');
         }
@@ -34,7 +34,7 @@ export default function AdminPage(){
     e.preventDefault();
     const send={title,sampleInput,sampleOutput};
     try{
-    const response=await axios.post('http://localhost:5000/api/hidden/addHidden',send,{withCredentials:true});
+    const response=await axios.post('https://codeverdict-backend.onrender.com/api/hidden/addHidden',send,{withCredentials:true});
     if(response.data.message=== 'succesfully added'){
         alert('successfully added');
     }

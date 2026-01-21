@@ -24,7 +24,7 @@ export default function ParticularProblem(){
         setLoading(true); 
         setResult(null);
         try{
-const response=await axios.post('http://localhost:5000/api/run/runCode',send,{withCredentials:true});
+const response=await axios.post('https://codeverdict-backend.onrender.com/api/run/runCode',send,{withCredentials:true});
 setResult(response.data);
         }catch(err){
             const error= err as AxiosError<{message:string}>
@@ -43,7 +43,7 @@ setResult(response.data);
         const send={userId:harsh?.userId,title:harsh.title,description:harsh.description,userCode:userCode};
     if(result?.message=== 'all test case pass'){
             try{
-          const response=await axios.post('http://localhost:5000/api/submit/userCode',send,{withCredentials:true});
+          const response=await axios.post('https://codeverdict-backend.onrender.com/api/submit/userCode',send,{withCredentials:true});
           if(response.data.message=== 'successfully submitted'){
             alert('successfully submitted');
           }
@@ -105,7 +105,7 @@ setResult(response.data);
 
             {result && !loading &&(
           <div className="pp-output-box">
-            <h3 style={{color: result.message === "all test case passed" ? "green" : "red"}}>
+            <h3 style={{color: result.message === "all test case pass" ? "#22c55e" : "#ef4444"}}>
               {result.message}
             </h3>
             {result.data.map((tc, index) => (
