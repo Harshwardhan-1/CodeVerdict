@@ -74,8 +74,8 @@ setResult(response.data);
         <select value={language} onChange={(e)=>setLanguage(e.target.value)}>
             <option value="Select Langauge">Select Language</option>
             <option value="C++">C++</option>
-            <option value="java">Java</option>
-            <option value="python">Python</option>
+            <option value="java">java</option>
+            <option value="python">python</option>
         </select>
      </div>
      </div>

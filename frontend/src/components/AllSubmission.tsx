@@ -23,7 +23,7 @@ export default function AllSubmission(){
     return(
         <>
           <div className="all-submission-page">
-        <h1 className="all-submission-title">This are the list of submission</h1>
+        <h1 className="all-submission-title">List of Submission</h1>
         {
             data.map((all,index)=>(
                 <div  className="submission-card" key={index}>
