@@ -52,7 +52,7 @@ export default function AdminPage(){
         <>
           <div className="admin-page">
       <div className="admin-container">
-        <h1>This is Admin Harshwardhan Yadav Page</h1>
+        <h1> Admin Harshwardhan Yadav Page </h1>
         <form className="admin-form" onSubmit={handleAddQuestion}>
 <input type="text" placeholder='Enter question title here' value={title} onChange={(e)=>setTitle(e.target.value)} />
 <input type="text" placeholder='Enter question descrption here' value={description} onChange={(e)=>setDescription(e.target.value)} />
