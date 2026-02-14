@@ -1,0 +1,120 @@
+.home {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: #0f172a;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.home .hero {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.home .hero-title {
+  font-size: 54px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.home .hero-subtitle {
+  font-size: 18px;
+  color: #94a3b8;
+  max-width: 650px;
+  margin: auto;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.home .hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.home .primary-btn {
+  background: #22c55e;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.home .primary-btn:hover {
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+.home .secondary-btn {
+  background: transparent;
+  border: 2px solid #22c55e;
+  color: #22c55e;
+  padding: 14px 32px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.home .secondary-btn:hover {
+  background: #22c55e;
+  color: black;
+}
+
+.home .stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 110px;
+}
+
+.home .stat-card {
+  background: #1e293b;
+  padding: 35px;
+  border-radius: 14px;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.home .stat-card:hover {
+  transform: translateY(-6px);
+  background: #334155;
+}
+
+.home .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.home .feature-card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 14px;
+  transition: 0.25s;
+}
+
+.home .feature-card:hover {
+  transform: translateY(-8px);
+  background: #334155;
+}
+
+.home .feature-card h3 {
+  color: #22c55e;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .home .hero-title {
+    font-size: 36px;
+  }
+
+  .home .hero-actions {
+    flex-direction: column;
+  }
+}

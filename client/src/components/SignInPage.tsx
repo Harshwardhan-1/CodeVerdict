@@ -1,10 +1,12 @@
-import {useState} from 'react';
+    import {useState} from 'react';
 import axios from 'axios';
 import { AxiosError } from 'axios';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './SignInPage.css';
 export default function SignInPage(){
+    const location=useLocation();
     const navigate=useNavigate();
     const [gmail,setGmail]=useState('');
     const [password,setPassword]=useState('');
@@ -12,13 +14,19 @@ export default function SignInPage(){
         e.preventDefault();
         const send={gmail,password};
         try{
-            const response=await axios.post('https://codeverdict-backend.onrender.com/add/new/SignIn',send,{withCredentials:true});
+            const response=await axios.post('http://localhost:5000/add/new/SignIn',send,{withCredentials:true});
             if(response.data.message=== 'login successfully'){
                 const user=response.data.data;
+                 const redirectPath =new URLSearchParams(location.search).get("redirect");
                 if(user?.role=== 'ADMIN'){
                     navigate('/AdminPage');
-                }else if(user?.role=== 'STUDENT'){
-                    navigate('/ProblemPage');
+                    return;
+                }
+                if(redirectPath){
+                    navigate(redirectPath);
+                }
+                else if(user?.role=== 'STUDENT'){
+                    navigate('/HomePage');
                 }
             }
         }catch(err){
@@ -27,7 +35,7 @@ export default function SignInPage(){
                 alert('provide proper detail');
             }else if(error.response?.data?.message=== 'gmail not found'){
                 alert('gmail not found');
-                navigate('/SignUpPage');
+                navigate('/');
             }else if(error.response?.data?.message=== 'something went wrong'){
                 alert('something went wrong');
             }

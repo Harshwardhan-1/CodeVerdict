@@ -15,7 +15,7 @@ export default function SignUpPage(){
         e.preventDefault();
         const send={name,gmail,password};
         try{
-            const response=await axios.post('https://codeverdict-backend.onrender.com/add/new/addNew',send,{withCredentials:true});
+            const response=await axios.post('http://localhost:5000/add/new/addNew',send,{withCredentials:true});
             if(response.data.message=== 'succesfully created'){
                 navigate('/SignInPage');
             }

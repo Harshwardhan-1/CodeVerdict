@@ -1,0 +1,94 @@
+.discuss-container {
+  display: flex;
+  height: 100vh;
+  background-color: #0f172a;
+  color: white;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+
+
+.code-section {
+  width: 50%;
+  padding: 20px;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.code-section h2 {
+  margin-bottom: 10px;
+  color: #38bdf8;
+}
+
+.code-box {
+  background-color: #020617;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  border: 1px solid #1e293b;
+  scrollbar-width: none;      
+}
+
+.code-box::-webkit-scrollbar {
+  display: none;              
+}
+
+
+.discussion-section {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.discussion-section h2 {
+  margin-bottom: 10px;
+  color: #22c55e;
+}
+
+
+.discussion-section textarea {
+  flex: 1;
+  background-color: #020617;
+  color: white;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 15px;
+  resize: none;
+  font-size: 15px;
+  outline: none;
+  overflow-y: scroll;
+  scrollbar-width: none;  
+}
+
+.discussion-section textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.discussion-section textarea::placeholder {
+  color: #94a3b8;
+}
+
+.discussion-section button {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #2563eb;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.discussion-section button:hover {
+  background-color: #1d4ed8;
+}

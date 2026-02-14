@@ -1,8 +1,10 @@
 import {useState} from 'react';
 import axios from 'axios';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './AdminPage.css';
 export default function AdminPage(){
+    const navigate=useNavigate();
     const [title,setTitle]=useState('');
     const [description,setDescription]=useState('');
     const [constraint,setConstraint]=useState('');
@@ -10,13 +12,14 @@ export default function AdminPage(){
     const [sampleOutput,setSampleOutput]=useState('');
     const [difficulty,setDifficulty]=useState('');
     const [topic,setTopic]=useState('');
+    const [points,setPoints]=useState('');
 
 
    const handleAddQuestion=async(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault();
-    const send={title,description,constraint,sampleInput,sampleOutput,difficulty,topic};
+    const send={title,description,constraint,sampleInput,sampleOutput,difficulty,topic,points};
     try{
-        const response=await axios.post('https://codeverdict-backend.onrender.com/api/newQuestion/addQuestion',send,{withCredentials:true});
+        const response=await axios.post('http://localhost:5000/api/newQuestion/addQuestion',send,{withCredentials:true});
         if(response.data.message=== 'question created successfully'){
             alert('question created successfull');
         }
@@ -34,7 +37,7 @@ export default function AdminPage(){
     e.preventDefault();
     const send={title,sampleInput,sampleOutput};
     try{
-    const response=await axios.post('https://codeverdict-backend.onrender.com/api/hidden/addHidden',send,{withCredentials:true});
+    const response=await axios.post('http://localhost:5000/api/hidden/addHidden',send,{withCredentials:true});
     if(response.data.message=== 'succesfully added'){
         alert('successfully added');
     }
@@ -48,11 +51,25 @@ export default function AdminPage(){
     }
    }
 
+   const showAllContest=()=>{
+    navigate('/ShowAllContest');
+   }
+
+
+   const AddContest=async()=>{
+    navigate('/AdminAddCodeVerdictContest');
+   }
+
+   const seeAllQuestion=async()=>{
+    navigate('/AdminSeeAllQuestion');
+   }
+
+
     return(
         <>
           <div className="admin-page">
       <div className="admin-container">
-        <h1> Admin Harshwardhan Yadav Page </h1>
+        <h1> Admin Add Harshwardhan Yadav Page </h1>
         <form className="admin-form" onSubmit={handleAddQuestion}>
 <input type="text" placeholder='Enter question title here' value={title} onChange={(e)=>setTitle(e.target.value)} />
 <input type="text" placeholder='Enter question descrption here' value={description} onChange={(e)=>setDescription(e.target.value)} />
@@ -60,6 +77,13 @@ export default function AdminPage(){
 <textarea placeholder="Enter sample input " value={sampleInput} onChange={(e) => setSampleInput(e.target.value)}className="admin-textarea"/>
 
 <textarea placeholder="Enter sample output " value={sampleOutput} onChange={(e) => setSampleOutput(e.target.value)} className="admin-textarea"/>
+
+
+
+<input type="text" placeholder='Enter points for this question' value={points} onChange={(e)=>setPoints(e.target.value)} />
+
+
+
 
 <select value={difficulty} onChange={(e)=>setDifficulty(e.target.value)}>
     <option value="Select Language">Select Difficulty</option>
@@ -75,6 +99,11 @@ export default function AdminPage(){
         </div>
 
 
+
+
+     <button onClick={AddContest}>Add Code Verdict Contest</button>
+     <button onClick={showAllContest}>See All Contest</button>
+     <button onClick={seeAllQuestion}>See All Questions</button>
         </>
     );
 }

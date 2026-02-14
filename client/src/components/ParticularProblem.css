@@ -224,3 +224,22 @@
   font-weight: bold;
   font-size: 15px;
 }
+
+
+
+
+
+.pp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pp-solved-badge {
+  background-color: #22c55e;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}

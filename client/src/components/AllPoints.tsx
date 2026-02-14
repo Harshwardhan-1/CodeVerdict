@@ -11,7 +11,7 @@ export default function AllPoints(){
     useEffect(()=>{
         const fetch=async()=>{
             try{
-                const response=await axios.get('https://codeverdict-backend.onrender.com/api/submit/allPoints',{withCredentials:true});
+                const response=await axios.get('http://localhost:5000/api/submit/allPoints',{withCredentials:true});
                 setData(response.data.data);
             }catch(err){
                 console.log(err);
@@ -36,7 +36,7 @@ export default function AllPoints(){
             data.map((all,index)=>(
                 <div className="points-card" key={index}>
                     <p className="points-title">Question Name:{all?.title}</p>
-                    <p className="points-score">Points Of This Queston You Get:{all?.points}</p>
+                    <p className="points-score">Points For This Queston You Get:{all?.points}</p>
                 </div>
             ))
         }

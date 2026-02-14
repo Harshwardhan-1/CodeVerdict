@@ -1,0 +1,56 @@
+.my-discuss-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.my-discuss-container h1 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #111;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+
+.discuss-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.discuss-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.problem-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+}
+
+.discuss-date {
+  font-size: 13px;
+  color: #6b7280;
+}
+.code-container {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.code-container code {
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.6;
+}

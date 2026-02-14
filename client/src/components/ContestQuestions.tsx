@@ -3,19 +3,21 @@ import {useState} from 'react';
 import axios from "axios";
 import { AxiosError } from "axios";
 import './ParticularProblem.css';
-export default function ParticularProblem(){
+export default function ContestQuestion(){
     interface TestCase{
         input:string,
         expectedOutput:string,
         userOutput:string,
         status:string,
     }
+
     const [result, setResult]=useState<{message:string,data:TestCase[]} | null>(null);
     const [language,setLanguage]=useState('');
     const [userCode,setUserCode]=useState('');
     const [loading,setLoading]=useState(false);
     const location=useLocation();
-    const harsh=location.state?.harsh;
+    
+    const harsh=location.state?.harshw;
 
 
 
@@ -24,7 +26,7 @@ export default function ParticularProblem(){
         setLoading(true); 
         setResult(null);
         try{
-const response=await axios.post('https://codeverdict-backend.onrender.com/api/run/runCode',send,{withCredentials:true});
+const response=await axios.post('http://localhost:5000/api/run/organizeRunCode',send,{withCredentials:true});
 setResult(response.data);
         }catch(err){
             const error= err as AxiosError<{message:string}>
@@ -39,11 +41,15 @@ setResult(response.data);
       }
 
 
-      const handleSubmit=async()=>{
-        const send={userId:harsh?.userId,title:harsh.title,description:harsh.description,userCode:userCode};
+
+
+
+      const handleSubmit=async(e:React.MouseEvent<HTMLButtonElement>)=>{
+        e.preventDefault();
+        const send={startingTime:harsh.joinNow.startingTimeOfContest,endingTime:harsh.joinNow.endingTimeOfContest,contestId:harsh.contestId,title:harsh.title,description:harsh.description,userCode:userCode};
     if(result?.message=== 'all test case pass'){
             try{
-          const response=await axios.post('https://codeverdict-backend.onrender.com/api/submit/userCode',send,{withCredentials:true});
+          const response=await axios.post('http://localhost:5000/api/submit/userOrganizeSubmitCode',send,{withCredentials:true});
           if(response.data.message=== 'successfully submitted'){
             alert('successfully submitted');
           }
@@ -51,19 +57,31 @@ setResult(response.data);
           const error=err as AxiosError<{message:string}>
           if(error.response?.data?.message=== 'provide proper detail'){
             alert('provide proper detail');
-          }else if(error.response?.data?.message=== 'try some other question you have alredy solved it 3 times'){
-            alert('try some other question you have alredy solved it 3 times');
+          }else if(error.response?.data?.message=== 'you have already submit it try other question of contest'){
+            alert('you have already submit it try other question of contest');
+          }else if(error.response?.data?.message=== 'time is up you cannot submit now'){
+            alert('time is up you cannot submit it now')
           }
         }
       }else{
         alert('first pass all the test case then only you will able to submit it');
       }
       }
+      
+
+
+
+
+
+
+
+
 
     return(
         <>
         <div className="pp-main-container">
          <div className="pp-left">
+          <p>{harsh?.contestId}</p>
             <p>Title:{harsh?.title}</p>
             <p>Description:{harsh?.description}</p>
             <p>Constraint:{harsh?.constraint}</p>
@@ -87,8 +105,6 @@ setResult(response.data);
 
           <button onClick={handleRun} className="pp-run-btn">Run</button>
           <button onClick={handleSubmit} className="pp-submit-btn">Submit</button>
-
-
 
 
            {loading && ( <div className="pp-loading"><p>Running...</p></div>)}
