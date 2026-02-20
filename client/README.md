@@ -51,6 +51,7 @@ client/
 
 ### 1 Clone the Repository
 git clone https://github.com/Harshwardhan-1/codeVerdict.git
+---
 cd codeVerdict
 
 ### 2 Install Dependencies
