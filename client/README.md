@@ -50,9 +50,11 @@ client/
 ##  Installation & Setup
 
 ### 1 Clone the Repository
+```bash
 git clone https://github.com/Harshwardhan-1/codeVerdict.git
----
 cd codeVerdict
+```
+
 
 ### 2 Install Dependencies
 
@@ -121,6 +123,6 @@ The frontend is optimized for deployment on platforms like:
 ---
 
 ##  Author
-Harshwardhan Yadav
+**Harshwardhan Yadav**
 Full Stac Devloper
 Frontend developed as part of the Code Verdict full-stack project.
