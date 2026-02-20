@@ -1,224 +1,247 @@
+/* ================= MAIN LAYOUT ================= */
+
 .profile-layout {
     display: flex;
-    min-height: 97vh;
-    background: #f1f5f9;
-    font-family: "Segoe UI", sans-serif;
+    min-height: 100vh;
+    background: #141420;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
 }
 
+/* ================= SIDEBAR ================= */
 
 .sidebar {
     width: 240px;
-    background: #0f172a;
-    color: white;
-    padding: 20px;
+    background: #1c1c2e;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.6);
 }
 
-.logo {
-    margin-bottom: 30px;
-    text-align: center;
+.sidebar .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00c853;
+    margin-bottom: 15px;
+}
+
+.sidebar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .sidebar button {
-    background: none;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
     border: none;
-    color: white;
-    padding: 12px;
-    text-align: left;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 6px;
-    margin-bottom: 6px;
-    font-size: 15px;
+    font-weight: 500;
+    background: #2b2b44;
+    color: #fff;
 }
 
-.sidebar button:hover {
-    background: #1e293b;
+.sidebar button:hover,
+.sidebar button.active {
+    background: #00c853;
 }
 
-.sidebar .active {
-    background: #2563eb;
-}
+.sidebar .edit { background: #546e7a; }
+.sidebar .logout { background: #d32f2f; }
 
-.logout {
-    margin-top: auto;
-    color: #f87171;
-}
+/* ================= CONTENT ================= */
 
 .content {
     flex: 1;
-    padding: 30px;
+    padding: 35px;
+    overflow-y: auto;
 }
 
-.welcome {
-    color: #475569;
-}
-
-.loading {
-    color: #2563eb;
-    font-weight: bold;
-}
-
-.card {
-    background: white;
-    padding: 16px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-.card h3 {
-    margin-bottom: 8px;
-}
-
-.card pre {
-    background: #0f172a;
-    color: #e5e7eb;
-    padding: 10px;
-    border-radius: 6px;
-    overflow-x: auto;
-}
-
-
-.points-box {
-    background: #2563eb;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-
-
-
-
-
-
-
-
-.leetcode-stats {
-    display: flex;
-    justify-content: center; 
-    align-items: center;      
-    height: 70vh;              
-    gap: 40px;
-}
-
-
+/* ================= PROGRESS CIRCLE ================= */
 
 .circle-wrapper {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 30px 0;
 }
 
 .progress-ring {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    background: conic-gradient(#00c853 0%, #00c853 60%, #2a2a2a 60%  );
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: conic-gradient(
+        #00c853 calc(var(--percent) * 1%),
+        #2b2b44 0%
+    );
 }
 
-.progress-ring::after {
+.progress-ring::before {
     content: "";
-    width: 115px;
-    height: 115px;
-    background: #1e1e1e;
-    border-radius: 50%;
     position: absolute;
+    width: 140px;
+    height: 140px;
+    background: #141420;
+    border-radius: 50%;
 }
 
 .ring-text {
     position: relative;
-    font-size: 26px;
-    font-weight: bold;
-    z-index: 2;
-    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
 }
 
-.ring-label {
-    margin-top: 10px;
-    color: #aaa;
-}
-
-
+/* ================= DIFFICULTY LIST ================= */
 
 .difficulty-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-size: 18px;
+    width: 300px;
+    margin: 0 auto 25px auto;
 }
 
 .diff {
     display: flex;
     justify-content: space-between;
-    width: 140px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin: 8px 0;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Scoped colors (no global clash) */
+.diff.easy { background: #2e7d32; }
+.diff.medium { background: #f57c00; }
+.diff.hard { background: #c62828; }
+
+/* ================= SECTION HEADINGS ================= */
+
+.content h2 {
+    margin-top: 35px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid #00c853;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+/* ================= MY POINTS ================= */
+
+.points-box {
+    background: #1f2a40;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 22px;
     font-weight: 600;
+    margin-bottom: 25px;
+    border-left: 5px solid #00c853;
+    color: #ffffff;
 }
 
+/* ================= CARDS ================= */
 
-.diff.easy { color: #00c853; }
-.diff.medium { color: #ffb300; }
-.diff.hard { color: #ff5252; }
-
-
-
-
-
- .heatmap-box {
-  margin-top: 40px;
-  background: #1e293b;
-  padding: 25px;
-  border-radius: 12px;
+.card {
+    background: #202038;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    border-left: 5px solid #00c853;
 }
 
-.color-empty {
-  fill: #2d3748;
+.card h3 {
+    margin-bottom: 8px;
+    color: #ffffff;
 }
 
-
-.color-1 {
-  fill: #9be9a8;
+.card p {
+    color: #c5c5d6;
 }
 
-.color-2 {
-  fill: #40c463;
+/* ================= BUTTON ================= */
+
+.submit-btn {
+    background: #00c853;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
 }
 
-.color-3 {
-  fill: #30a14e;
+.submit-btn:hover {
+    background: #00e676;
 }
 
-.color-4 {
-  fill: #216e39;
+/* ================= CODE BLOCK ================= */
+
+pre {
+    background: #11111a;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
 }
 
-.react-calendar-heatmap rect:hover {
-  stroke: white;
-  stroke-width: 2px;
-  cursor: pointer;
+/* ================= HEATMAP SECTION ================= */
+
+.heatmap-section {
+    margin-top: 60px;
+    padding: 25px;
+    background: #1c1c2e;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.heatmap-section svg {
+    margin-top: 20px;
+}
 
+/* Heat colors */
+.color-empty { fill: #2a2a3d; }
+.color-1 { fill: #00e676; }
+.color-2 { fill: #00c853; }
+.color-3 { fill: #2e7d32; }
+.color-4 { fill:  #244d2c; }
+
+
+.year-controls {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
 
 .year-controls button {
-  padding: 5px 10px;
-  margin: 0 5px;
-  background-color: #334155;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
+    background: #00c853;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
 }
 
 .year-controls button:hover {
-  background-color: #475569;
+    background: #00e676;
+}
+
+
+div img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    margin: 6px;
+    object-fit: cover;
 }

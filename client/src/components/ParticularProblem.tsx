@@ -240,7 +240,7 @@ setLoading(false);
     <div className="pp-language-select">
         <select value={language} onChange={(e)=>setLanguage(e.target.value)}>
             <option value="Select Langauge">Select Language</option>
-            <option value="C++">C++</option>
+            <option value="cpp">C++</option>
             <option value="java">java</option>
             <option value="python">python</option>
         </select>

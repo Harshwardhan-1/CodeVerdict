@@ -390,51 +390,7 @@ const handleEdit=async()=>{
              <main className="content">
                 
                 {loading && <p className="loading">Loading...</p>}
-
-                {activeSection === "submission" && !loading && (
-                    <>
-                        <h2>My Submissions</h2>
-                        {data.map((item, index) => (
-                            <div className="card" key={index}>
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
-                                <pre>{item.userCode}</pre>
-                                <button onClick={()=>handleAllSubmission(item?.title)} className="submit-btn">See All Submission of this question</button>
-                            </div>
-                        ))}
-                    </>
-                )}
-
-
-
-                {activeSection === "discussion" && !loading && (
-                    <>
-                        <h2>My Discussion</h2>
-                        {discussion.map((item, index) => (
-                            <div className="card" key={index}>
-                                <h3>{item.problemTitle}</h3>
-                                <pre>{item.userCode}</pre>
-                                <p>{item.approach}</p>
-                            </div>
-                        ))}
-                    </>
-                )}
-
-                {activeSection === "points" && !loading && (
-                    <>
-                        <div className="points-box">
-                            Total Points: <span>{totalPoints}</span>
-                        </div>
-
-                        {dataPoint.map((item, index) => (
-                            <div className="card" key={index}>
-                                <p><strong>Question:</strong> {item.title}</p>
-                                <p><strong>Points:</strong> {item.points}</p>
-                            </div>
-                        ))}
-                    </>
-                )}
-                {activeSection === null && profileData && (
+                {profileData && (
 <div className="leetcode-stats">
 
     <div className="circle-wrapper">
@@ -536,6 +492,48 @@ const handleEdit=async()=>{
         </div>
     ))
 }
+ {activeSection === "points" && !loading && (
+                    <>
+                        <div className="points-box">
+                            Total Points: <span>{totalPoints}</span>
+                        </div>
+
+                        {dataPoint.map((item, index) => (
+                            <div className="card" key={index}>
+                                <p><strong>Question:</strong> {item.title}</p>
+                                <p><strong>Points:</strong> {item.points}</p>
+                            </div>
+                        ))}
+                    </>
+                )}
+
+
+                {activeSection === "discussion" && !loading && (
+                    <>
+                        <h2>My Discussion</h2>
+                        {discussion.map((item, index) => (
+                            <div className="card" key={index}>
+                                <h3>{item.problemTitle}</h3>
+                                <pre>{item.userCode}</pre>
+                                <p>{item.approach}</p>
+                            </div>
+                        ))}
+                    </>
+                )}
+                {activeSection === "submission" && !loading && (
+                    <>
+                        <h2>My Submissions</h2>
+                        {data.map((item, index) => (
+                            <div className="card" key={index}>
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                                <pre>{item.userCode}</pre>
+                                <button onClick={()=>handleAllSubmission(item?.title)} className="submit-btn">See All Submission of this question</button>
+                            </div>
+                        ))}
+                    </>
+                )}
+
 </>
     );
 }

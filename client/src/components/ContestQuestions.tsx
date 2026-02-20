@@ -67,16 +67,6 @@ setResult(response.data);
         alert('first pass all the test case then only you will able to submit it');
       }
       }
-      
-
-
-
-
-
-
-
-
-
     return(
         <>
         <div className="pp-main-container">
