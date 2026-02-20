@@ -92,3 +92,50 @@ http://localhost:3000
 ```
 
 ---
+
+--
+
+## API Endpoints
+
+### 1️ Register User
+
+**POST** `/api/auth/register`
+
+**Request Body:**
+
+```json
+{
+  "username": "Jay_Rathore11",
+  "name": "Jay Rathore",
+  "email": "jayrathore8815@gmail.com",
+  "password": "Jay9575Rathore"
+}
+```
+
+**Success Response (201):**
+
+```json
+{
+  "success": true,
+  "message": "User Registered Successfully",
+  "user": {
+    "_id": "69986d1a94d18a4af37102a2",
+    "username": "Jay_Rathore11",
+    "name": "Jay Rathore",
+    "email": "jayrathore8815@gmail.com",
+    "password": "$2b$10$hashedPassword",
+    "role": "user",
+    "profilePic": "default.jpg",
+    "createdAt": "2026-02-20T14:18:02.535Z",
+    "updatedAt": "2026-02-20T14:18:02.535Z",
+    "__v": 0
+  }
+}
+```
+
+---
+## 👨‍💻 Author
+
+**Harshwardhan Yadav**  
+Full Stack Developer  
+Backend developed as part of the CodeVerdict full-stack project.
