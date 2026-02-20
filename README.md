@@ -27,7 +27,7 @@
 
 ---
 
-## 📖 Project Overview
+##  Project Overview
 
 Code Verdict replicates the core workflow of an online coding judge.  
 Users can browse problems, write solutions, test their code, and participate in structured contests.  
@@ -36,7 +36,7 @@ The system is built with scalability and clean architecture in mind.
 
 ---
 
-## ✨ Core Features
+##  Core Features
 
 - Structured problem listing with detailed views  
 - Contest participation system  
@@ -48,7 +48,7 @@ The system is built with scalability and clean architecture in mind.
 
 ---
 
-## 🛠 Technology Stack
+##  Technology Stack
 
 ### Frontend
 - React  
@@ -68,7 +68,7 @@ The system is built with scalability and clean architecture in mind.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 ```
 code-verdict/
 │
@@ -82,7 +82,7 @@ code-verdict/
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### 1 Clone the Repository
 
@@ -143,7 +143,7 @@ npm start
 
 
 
-## 🚀 Deployment
+##  Deployment
 
 - Frontend deployed on Vercel  
 - Backend can be deployed on Render or Railway  
@@ -151,7 +151,7 @@ npm start
 
 ---
 
-## 🔮 Planned Enhancements
+##  Planned Enhancements
 
 - Leaderboard system  
 - Submission history  
@@ -162,7 +162,7 @@ npm start
 
 ---
 
-## 🤝 Contribution
+##  Contribution
 
 Contributions are welcome:
 
@@ -174,6 +174,6 @@ Contributions are welcome:
 
 ---
 
-## 📄 License
+##  License
 
 This project is open-source and intended for learning and development purposes.
