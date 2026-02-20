@@ -7,26 +7,26 @@
 
 
 ### Login Page
-![Login](assets/login.png)
+![Login](assets/screenshot/login.png)
 
 ### Home Page
-![Home](assets/image.png)
+![Home](assets/screenshot/image.png)
 
 ### HeatMap Page
-![HeatMap](assets/heatmap.png)
+![HeatMap](assets/screenshot/heatmap.png)
 
 
 ### Discuss Approach
-![Discuss](assets/discussApproach.png)
+![Discuss](assets/screenshot/discussApproach.png)
 
 ### Problem List
-![Problem List](assets/SeeProblem.png)
+![Problem List](assets/screenshot/SeeProblem.png)
 
 ### See Problem
-![Problem](assets/see1Problem.png)
+![Problem](assets/screenshot/see1Problem.png)
 
 ### Problem List
-![Problem List](assets/SeeProblem.png)
+![Problem List](assets/screenshot/SeeProblem.png)
 
 
 ---
