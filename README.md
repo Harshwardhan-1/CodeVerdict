@@ -135,7 +135,7 @@ Start frontend:
 
 ```
 cd client
-npm run devc
+npm run dev
 ```
 
 ---
