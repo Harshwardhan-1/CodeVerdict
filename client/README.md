@@ -7,16 +7,16 @@ It provides a clean, responsive, and interactive interface for solving problems 
 
 ##  Features
 
-- 🔐 User Authentication (Signup / Login)
-- 📋 Problem Listing with Detailed View
-- 💻 Code Editor Interface
-- 📊 Heatmap Progress Tracking
-- 🏆 Contest Participation UI
-- 📱 Fully Responsive Design
+-  User Authentication (Signup / Login)
+-  Problem Listing with Detailed View
+-  Code Editor Interface
+-  Heatmap Progress Tracking
+-  Contest Participation UI
+-  Fully Responsive Design
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - React
 - TypeScript
@@ -47,7 +47,7 @@ client/
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### 1 Clone the Repository
 git clone https://github.com/Harshwardhan-1/codeVerdict.git
