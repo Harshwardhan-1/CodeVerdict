@@ -1,4 +1,3 @@
-/* ================= MAIN LAYOUT ================= */
 
 .profile-layout {
     display: flex;
@@ -8,7 +7,9 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* ================= SIDEBAR ================= */
+.ring-label{
+    margin-left: 10px;
+}
 
 .sidebar {
     width: 240px;
@@ -55,7 +56,6 @@
 .sidebar .edit { background: #546e7a; }
 .sidebar .logout { background: #d32f2f; }
 
-/* ================= CONTENT ================= */
 
 .content {
     flex: 1;
@@ -63,7 +63,6 @@
     overflow-y: auto;
 }
 
-/* ================= PROGRESS CIRCLE ================= */
 
 .circle-wrapper {
     display: flex;
@@ -102,7 +101,6 @@
     color: #ffffff;
 }
 
-/* ================= DIFFICULTY LIST ================= */
 
 .difficulty-list {
     width: 300px;
@@ -119,12 +117,10 @@
     color: #fff;
 }
 
-/* Scoped colors (no global clash) */
 .diff.easy { background: #2e7d32; }
 .diff.medium { background: #f57c00; }
 .diff.hard { background: #c62828; }
 
-/* ================= SECTION HEADINGS ================= */
 
 .content h2 {
     margin-top: 35px;
@@ -134,7 +130,6 @@
     padding-bottom: 6px;
 }
 
-/* ================= MY POINTS ================= */
 
 .points-box {
     background: #1f2a40;
@@ -147,7 +142,6 @@
     color: #ffffff;
 }
 
-/* ================= CARDS ================= */
 
 .card {
     background: #202038;
@@ -166,7 +160,6 @@
     color: #c5c5d6;
 }
 
-/* ================= BUTTON ================= */
 
 .submit-btn {
     background: #00c853;
@@ -181,7 +174,6 @@
     background: #00e676;
 }
 
-/* ================= CODE BLOCK ================= */
 
 pre {
     background: #11111a;
@@ -191,7 +183,6 @@ pre {
     overflow-x: auto;
 }
 
-/* ================= HEATMAP SECTION ================= */
 
 .heatmap-section {
     margin-top: 60px;
@@ -208,7 +199,6 @@ pre {
     margin-top: 20px;
 }
 
-/* Heat colors */
 .color-empty { fill: #2a2a3d; }
 .color-1 { fill: #00e676; }
 .color-2 { fill: #00c853; }

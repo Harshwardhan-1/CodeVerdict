@@ -75,32 +75,32 @@ try{
 }
     }
 
-    interface discussions{
-        probelemTitle:string,
-        approach:string,
-        date:Date,
-}
-const [data,setData]=useState<discussions[]>([]);
+    // interface discussions{
+    //     probelemTitle:string,
+    //     approach:string,
+    //     date:Date,
+//}
+// const [data,setData]=useState<discussions[]>([]);
 
-    const seePrevious=async(e:React.MouseEvent<HTMLButtonElement>)=>{
-        e.preventDefault();
-        const sendToDiss={title:harsh?.title};
-        try{
-            const response=await axios.post('http://localhost:5000/api/discuss/AllDiscussionOfThisQuestion',sendToDiss,{withCredentials:true});
-            if(response.data.message=== 'successfull'){
-                setData(response.data.data);
-            }
-        }catch(err){
-            const error=err as  AxiosError<{message:string}>
-            if(error.response?.data?.message=== 'no discussion yet'){
-                alert('no discussion yet');
-            }else if(error.response?.data?.message=== 'provide proper detail'){
-                alert('provide proper detail');
-            }else if(error.response?.data?.message=== 'no previous discussion'){
-                alert('no previous discussion');
-            }
-        }
-    }
+    // const seePrevious=async(e:React.MouseEvent<HTMLButtonElement>)=>{
+    //     e.preventDefault();
+    //     const sendToDiss={title:harsh?.title};
+    //     try{
+    //         const response=await axios.post('http://localhost:5000/api/discuss/AllDiscussionOfThisQuestion',sendToDiss,{withCredentials:true});
+    //         if(response.data.message=== 'successfull'){
+    //             setData(response.data.data);
+    //         }
+    //     }catch(err){
+    //         const error=err as  AxiosError<{message:string}>
+    //         if(error.response?.data?.message=== 'no discussion yet'){
+    //             alert('no discussion yet');
+    //         }else if(error.response?.data?.message=== 'provide proper detail'){
+    //             alert('provide proper detail');
+    //         }else if(error.response?.data?.message=== 'no previous discussion'){
+    //             alert('no previous discussion');
+    //         }
+    //     }
+    // }
 
     return(
         <>
@@ -113,10 +113,9 @@ const [data,setData]=useState<discussions[]>([]);
         <h2>Discuss Your Approach</h2>
 <textarea placeholder="Explain your approach, logic, time complexity, edge cases..." value={approach} onChange={(e)=>setApproach(e.target.value)}/>
         <button type="submit" onClick={handleSubmit}>Submit</button>
-        <button onClick={seePrevious}>See previous Discussion</button>
       </div>
       </div>
-
+{/* 
       {
         data.map((all,index)=>(
             <div key={index}>
@@ -125,7 +124,7 @@ const [data,setData]=useState<discussions[]>([]);
                 <p>{new Date(all?.date).toLocaleDateString()}</p>
             </div>
         ))
-      }
+      } */}
         </>
     );
 }

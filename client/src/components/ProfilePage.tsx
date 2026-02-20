@@ -399,7 +399,7 @@ const handleEdit=async()=>{
                 {profileData?.totalSolvedCount}/{profileData?.totalQuestion}
             </span>
         </div>
-        <p className="ring-label">Solved</p>
+        <p className="ring-label">Total Solved</p>
     </div>
 
     <div className="difficulty-list">
