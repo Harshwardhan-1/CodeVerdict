@@ -39,6 +39,6 @@ export default function ContestPage(){
       </div>
     </div>
 
-        </>
+        </> 
     );
 }

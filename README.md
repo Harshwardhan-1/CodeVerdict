@@ -1,10 +1,10 @@
+
+
 ##  Screenshots
 
 ### Profile Page
 ![Profile Page](assets/profilePage.png)
 
-### Sign Up Page
-![Sign Up](assets/signup.png)
 
 ### Login Page
 ![Login](assets/login.png)
@@ -15,8 +15,12 @@
 ### HeatMap Page
 ![HeatMap](assets/heatmap.png)
 
+
 ### Discuss Approach
 ![Discuss](assets/discussApproach.png)
+
+### Problem List
+![Problem List](assets/SeeProblem.png)
 
 ### See Problem
 ![Problem](assets/see1Problem.png)
