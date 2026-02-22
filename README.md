@@ -13,7 +13,7 @@
 ![Home](assets/screenshot/image1.png)
 
 ### HeatMap Page
-![HeatMap](assets/screenshot/heatmap.png)
+![HeatMap](assets/screenshot/heatmaps.png)
 
 ### See Problem
 ![Problem](assets/screenshot/see1Problem.png)
@@ -24,10 +24,6 @@
 ### Problem List
 ![Problem List](assets/screenshot/SeeProblem.png)
 
-
-
-### Problem List
-![Problem List](assets/screenshot/SeeProblem.png)
 
 
 ### Running Code
