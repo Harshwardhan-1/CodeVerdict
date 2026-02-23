@@ -16,7 +16,7 @@ const {title,sampleInput,sampleOutput}=req.body;
 if(!title || !sampleInput || !sampleOutput){
     return res.status(401).json({
         message:"provide proper details",
-    });
+    }); 
 }
 const inputStr=sampleInput.trim();
 const outputStr=sampleOutput.trim();
