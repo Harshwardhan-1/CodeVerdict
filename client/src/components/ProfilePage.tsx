@@ -13,6 +13,8 @@ interface Submission {
     title: string;
     description: string;
     userCode: string;
+    language:string,
+    difficulty:string,
 }
 
 interface AllPoints {
@@ -300,6 +302,9 @@ useEffect(()=>{
     const [activeSection, setActiveSection] = useState<Section>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
+    const [blurred,setIsblurred]=useState(false);
+    
+
     const handleSubmission = async () => {
         try {
             setLoading(true);
@@ -310,8 +315,18 @@ useEffect(()=>{
                 submissionRef.current?.scrollIntoView({behavior:"smooth"});
             },100)
         } catch (err) {
-            const error = err as AxiosError<{ message: string }>;
-            alert(error.response?.data?.message || "Error");
+            console.log(err);
+            setIsblurred(true);
+            Swal.fire({
+                icon:"error",
+                title:"No Submission Yet",
+                timer:1000,
+                     showConfirmButton: false,
+                     background: "#0b1b2b",
+                     color: "#e2e8f0",
+            }).then(()=>{
+                setIsblurred(false);
+            })
         } finally {
             setLoading(false);
         }
@@ -326,14 +341,27 @@ useEffect(()=>{
             const response = await axios.get("http://localhost:5000/api/submit/allPoints", { withCredentials: true });
             const pointsData: AllPoints[] = response.data.data;
             setDataPoint(pointsData);
-
+   
             const total = pointsData.reduce(  (sum, item) => sum + Number(item.points), 0);
             setTotalPoints(total);
             setTimeout(()=>{
                 pointsRef.current?.scrollIntoView({behavior:"smooth"});
             },100);
         } catch (err) {
-            console.log(err);
+            const error=err as AxiosError<{message:string}>
+            if(error.response?.data?.message=== 'no submission yet'){
+                setIsblurred(true);
+                Swal.fire({
+                    icon:"error",
+                    title:"No Points Right Now",
+                    timer:1000,
+                     showConfirmButton: false,
+                     background: "#0b1b2b",
+                     color: "#e2e8f0",
+                }).then(()=>{
+                    setIsblurred(false);
+                })
+            }
             
         } finally {
             setLoading(false);
@@ -356,16 +384,20 @@ useEffect(()=>{
                 }
             }catch(err){
                 const error=err as AxiosError<{message:string}>
+                setDiscussion([]);
                 if(error.response?.data?.message=== 'no submission yet'){
+                    setIsblurred(true);
                     Swal.fire({
-                        icon:"info",
-                        title:"Discussion",
-                        text:"No Discussion found",
-                        timer:1000,
-                        showConfirmButton: false,
-                        background: "#0b1b2b",
-                        color: "#e2e8f0",
-                    })
+                icon:"info",
+                title:"Discussion",
+                text:"No Discussion found",
+                timer:1000,
+                showConfirmButton: false,
+                background: "#0b1b2b",
+                color: "#e2e8f0",
+            }).then(()=>{
+                setIsblurred(false);
+            })
                 }
             }finally{
                 setLoading(false);
@@ -429,7 +461,7 @@ const handleEdit=async()=>{
     <span onClick={()=>navigate('/ProfilePage')} className="header-item">Profile</span>
   </div>
      </header>
-        <div className="profile-layout">
+        <div className={`profile-layout  ${blurred?"blurred":""}`}    >
             <aside className="sidebar">
                  <img src={preview ||"https://cdn-icons-png.flaticon.com/512/149/149071.png"}  className="avatar"/>
                 <h2 className="logo">{profilename?.name}</h2>
@@ -559,7 +591,7 @@ viewport={{once:true,amount:0.2}}
     ))
 }
 
- {activeSection === "points" && !loading && (
+ {activeSection === "points" && dataPoint.length>0 &&  !loading && (
                     <>
                     <div ref={pointsRef}>
                         <div className="points-box">
@@ -577,7 +609,7 @@ viewport={{once:true,amount:0.2}}
                 )}
 
 
-                {activeSection === "discussion" && !loading && (
+                {activeSection === "discussion" &&  discussion.length > 0 && !loading && (
                     <>
                     <div ref={discussionRef} >
                         <h2>My Discussion</h2>
@@ -594,12 +626,13 @@ viewport={{once:true,amount:0.2}}
 
 
 
-                {activeSection === "submission" && !loading && (
+                {activeSection === "submission"  && data.length>0  && !loading && (
                     <>
                     <div ref={submissionRef} >
                         <h2>All Submissions</h2>
                         {data.map((item, index) => (
                             <div className="card" key={index}>
+                                <button className="lan">Language: {item.language}</button>
                                 <h3>Title:{item.title}</h3>
                                 <p>Description:{item.description}</p>
                                 <pre>{item.userCode}</pre>

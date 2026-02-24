@@ -1,93 +1,158 @@
 .editProfilePage {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: #f5f7fb;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  min-height: 97vh;
+  padding: 2rem 1rem;
+  font-family: 'Inter', sans-serif;
 }
 
 .title {
-  font-size: 26px;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .profileForm {
-  width: 380px;
-  background: white;
-  padding: 28px;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-
+  background-color: #0b1b2b;
+  padding: 2rem;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
-
-
-.profileForm input,
-.profileForm select {
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-.profileForm input:focus,
-.profileForm select:focus {
-  border-color: #3b82f6;
-  outline: none;
-}
-
 
 .avatarWrapper {
   position: relative;
   width: 120px;
   height: 120px;
-  margin: auto;
+  margin: 0 auto;
   cursor: pointer;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
+.avatarWrapper img.avatar {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  border: 3px solid #16a34a;
 }
 
-.overlay {
+.avatarWrapper .overlay {
   position: absolute;
   bottom: 0;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   text-align: center;
-  background: rgba(0, 0, 0, 0.55);
-  color: white;
-  font-size: 12px;
-  padding: 4px 0;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
   border-radius: 0 0 50% 50%;
   opacity: 0;
-  transition: 0.2s;
+  transition: opacity 0.3s ease;
 }
 
 .avatarWrapper:hover .overlay {
   opacity: 1;
 }
 
+.profileForm select,
+.profileForm input[type="text"],
+.profileForm input[type="date"] {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.profileForm select:focus,
+.profileForm input[type="text"]:focus,
+.profileForm input[type="date"]:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 5px #16a34a;
+}
 
 .submitBtn {
-  padding: 12px;
+  background-color: #1dda62;
+  color: #0b1b2b;
   border: none;
-  border-radius: 12px;
-  font-weight: 600;
-  background: #3b82f6;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitBtn:hover{
+    background-color: cadetblue;
+}
+
+
+@media (max-width: 480px) {
+  .profileForm {
+    padding: 1.5rem;
+  }
+
+  .avatarWrapper {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+
+
+.heer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
   color: white;
+  font-weight: 500;
+   background-color: #2c3e50;
+    background: #0f172a;
+    border-bottom: 2px solid #1e293b;
+}
+
+
+.header-left {
+  flex: 1;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.header-cent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  font-size: 16px;
+}
+
+
+.header-righ {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-item {
   cursor: pointer;
 }
 
-.submitBtn:hover {
-  background: #2563eb;
+.header-item:hover {
+  color: #22C55E;
 }

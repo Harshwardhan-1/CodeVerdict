@@ -381,3 +381,18 @@ div img {
 .react-calendar-heatmap text {
   fill: white !important;
 }
+
+
+
+.lan {
+  background-color: #0f172a;     
+  color: #22c55e;              
+  border: 1px solid #22c55e;     
+  padding: 6px 14px;             
+  border-radius: 8px;         
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+}

@@ -5,12 +5,17 @@ import { profileModel} from '../models/EditProfileModel';
 
 export const makeProfile=async(req:Request,res:Response)=>{
 const {gender,dateOfBirth,githubLink,linkedinLink}=req.body;
+if(!gender && !dateOfBirth && !githubLink && !linkedinLink){
+    return res.status(400).json({
+        message:"atleast provide one detail",
+    });
+}
 const profilePhoto=req.file?.filename;
 const user=(req as any).user;
 const userId=user.userId;
 const name=user.name;
 const gmail=user.gmail;
-
+ 
 const checkIt=await profileModel.findOne({gmail});
 if(checkIt){
     checkIt.gender=gender;

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import "./EditProfile.css";
-
+import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 export default function EditProfile() {
+  const navigate=useNavigate();
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
   const [preview, setPreview] = useState<string>("");
 
@@ -60,7 +63,7 @@ export default function EditProfile() {
     reader.readAsDataURL(file);
   };
 
-
+const [blurred,setIsBlurred]=useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -80,15 +83,59 @@ export default function EditProfile() {
       );
 
       if (response.data.message === "successfull" ||response.data.message === "update successfull"){
-        alert("Profile saved successfully");
-      }
+        setIsBlurred(true);
+        Swal.fire({
+          icon:"success",
+          text:"profile saved successfully",
+          timer:1000,
+          showConfirmButton: false,
+          background: "#0b1b2b",
+          color: "#e2e8f0",
+        }).then(()=>{
+          setIsBlurred(false);
+        })
+      } 
     } catch (err) {
-      console.log(err);
+      const error=err as AxiosError<{message:string}>
+      if(error.response?.data?.message=== 'atleast provide one detail'){
+        Swal.fire({
+          icon:"error",
+          title:"Atleast Provide one detail",
+          timer:1000,
+          showConfirmButton: false,
+          background: "#0b1b2b",
+          color: "#e2e8f0",
+        })
+      }
     }
   };
   return (
-    <div className="editProfilePage">
-      <h1 className="title">Edit Profile</h1>
+    <>
+    <motion.header className="heer"
+      >
+   <div className="header-left">
+    <span onClick={()=>navigate('/HomePage')}  className="header-item">CodeVerdict</span>
+  </div>
+    <div className="header-cent">
+    <span onClick={()=>navigate('/HomePage')} className="header-item">Home</span>
+    <span onClick={()=>navigate('/ProblemPage')} className="header-item">Problems</span>
+    <span onClick={()=>navigate('/ContestPage')} className="header-item">Contest</span>
+    <span onClick={()=>Swal.fire({
+       icon: "info",
+    title: "Leaderboard",
+    text: "Leaderboard will be added soon",
+    timer: 1000,
+    showConfirmButton: false,
+    background: "#0b1b2b",
+    color: "#e2e8f0",
+    })} className="header-item">Leaderboard</span>
+  </div>
+  <div className="header-righ">
+    <span onClick={()=>navigate('/ProfilePage')} className="header-item">Profile</span>
+  </div>
+     </motion.header>
+    <div className={`editProfilePage ${blurred?"blurred":""}`}>
+      <h1 className="title">Profile</h1>
 
       <form className="profileForm" onSubmit={handleSubmit}>
         <label className="avatarWrapper">
@@ -104,29 +151,30 @@ export default function EditProfile() {
 
           <input type="file" hidden onChange={handleFileChange} />
         </label>
+        <label >Select Gender</label>
         <select value={gender || ""} onChange={(e) => setGender(e.target.value)}>
           <option value="">Select Gender</option>
           <option>Male</option>
           <option>Female</option>
           <option>Other</option>
         </select>
-
+        <label >Date Of Birth</label>
         <input
           type="date"
           value={dateOfBirth || ""}
           onChange={(e) => setDateOfBirth(e.target.value)}
         />
-
+        <label >Github Link</label>
         <input
           type="text"
-          placeholder="Github link"
+          placeholder="www.example.com"
           value={githubLink || ""}
           onChange={(e) => setGithubLink(e.target.value)}
         />
-
+        <label >Linkedin Link</label>
         <input
           type="text"
-          placeholder="LinkedIn link"
+          placeholder="www.example.com"
           value={linkedinLink || ""}
           onChange={(e) => setLinkedinLink(e.target.value)}
         />
@@ -136,5 +184,6 @@ export default function EditProfile() {
         </button>
       </form>
     </div>
+    </>
   );
 }
