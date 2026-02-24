@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './ProblemPage.css';
+import Swal from "sweetalert2";
 
 interface Question{
     _id: string;
@@ -50,7 +51,7 @@ export default function ProblemPage() {
         return matchedSearch && matchedDiff && matchedTopic;
     });
 
-    const handleTitle = (all: Question) => navigate('/ParticularProblem', {state:{harsh: all}});
+    const handleTitle = (all: Question,index:number) => navigate('/ParticularProblem', {state:{harsh: all,serial:index+1}});
     
 
 
@@ -64,7 +65,15 @@ export default function ProblemPage() {
     <span onClick={()=>navigate('/HomePage')} className="header-item">Home</span>
     <span onClick={()=>navigate('/ProblemPage')} className="header-item">Problems</span>
     <span onClick={()=>navigate('/ContestPage')} className="header-item">Contest</span>
-    <span onClick={()=>alert('Leaderboard will be added soon')} className="header-item">Leaderboard</span>
+    <span onClick={()=>Swal.fire({
+           icon: "info",
+        title: "Leaderboard",
+        text: "Leaderboard will be added soon",
+        timer: 1100,
+        showConfirmButton: false,
+        background: "#0b1b2b",
+        color: "#e2e8f0",
+        })} className="header-item">Leaderboard</span>
   </div>
   <div className="header-right">
     <span onClick={()=>navigate('/ProfilePage')} className="header-item">Profile</span>
@@ -110,7 +119,7 @@ export default function ProblemPage() {
                     <span>Acceptance</span>
                 </div>
                 {filteredData.map((all, index) => (
-                    <div className="table-row" key={index} onClick={() => handleTitle(all)}>
+                    <div className="table-row" key={index} onClick={() => handleTitle(all,index)}>
                         <span className="serial">{index + 1}</span>
                         <span className="problem-title">{all.title}</span>
                         <span className={`difficulty ${all.difficulty.toLowerCase()}`}>{all.difficulty}</span>

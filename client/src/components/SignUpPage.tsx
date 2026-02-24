@@ -3,7 +3,8 @@ import axios from 'axios';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './SignUpPage.css'
+import './SignUpPage.css';
+
 export default function SignUpPage(){
     const navigate=useNavigate();
     const [name,setName]=useState<string>('');

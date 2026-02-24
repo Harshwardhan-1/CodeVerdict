@@ -6,12 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import { CodeEditor } from "./CodeEditor";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 export default function ParticularProblem() {
 
   const navigate = useNavigate();
   const location = useLocation();
   const harsh = location.state?.harsh;
+  const [isblurred,setIsblurred]=useState(false); 
+
 
   interface TestCase {
     testCaseNumber: number;
@@ -230,7 +233,19 @@ System.out.println()
       );
 
       if (response.data.message === "successfully submitted") {
-        alert("Successfully submitted");
+        setIsblurred(true);
+          Swal.fire({
+            icon: "success",
+  title: "Submitted!",
+  text: "Your solution has been submitted successfully.",
+  timer: 2000,
+  showConfirmButton: false,
+  background: "#0b1b2b",
+  color: "#e2e8f0",
+}).then(()=>{
+  setIsblurred(false);
+})
+
       }
     } catch (err){
       console.log(err);
@@ -291,7 +306,6 @@ useEffect(()=>{
     console.log(err);
     }
   };
-
   return (
     <>
       <motion.header className="headeraaaa"
@@ -303,7 +317,15 @@ useEffect(()=>{
     <span onClick={()=>navigate('/HomePage')} className="header-item">Home</span>
     <span onClick={()=>navigate('/ProblemPage')} className="header-item">Problems</span>
     <span onClick={()=>navigate('/ContestPage')} className="header-item">Contest</span>
-    <span onClick={()=>alert('Leaderboard will be added soon')} className="header-item">Leaderboard</span>
+    <span onClick={()=>Swal.fire({
+       icon: "info",
+    title: "Leaderboard",
+    text: "Leaderboard will be added soon",
+    timer: 1000,
+    showConfirmButton: false,
+    background: "#0b1b2b",
+    color: "#e2e8f0",
+    })} className="header-item">Leaderboard</span>
   </div>
   <div className="header-right">
     <span onClick={()=>navigate('/ProfilePage')} className="header-item">Profile</span>
@@ -319,7 +341,7 @@ useEffect(()=>{
 
 
 
-    <motion.div className="pp-main-container"
+    <motion.div className={`pp-main-container ${isblurred?"blurred":""}`}
     initial={{y:100,opacity:0}}
     animate={{y:0,opacity:1}}
     transition={{duration:1,ease:"easeIn"}}
@@ -329,7 +351,7 @@ useEffect(()=>{
   <span className={`pp-difficulty-text ${harsh?.difficulty?.toLowerCase()}`}>{harsh?.difficulty}</span>
 </p>
         <div className="pp-title-row">
-          <p>Title: {harsh?.title}</p>
+          <p> Title: {harsh?.title}</p>
           {submitCheck?.alreadySubmit === "solved" && (
             <span className="pp-solved-badge">Solved</span>
           )}

@@ -1,6 +1,7 @@
 import {useNavigate } from "react-router-dom";
 import './HomePage.css';
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 export default function HomePage() {
   const navigate = useNavigate();
   return (
@@ -13,7 +14,15 @@ export default function HomePage() {
     <span onClick={()=>navigate('/HomePage')} className="header-item">Home</span>
     <span onClick={()=>navigate('/ProblemPage')} className="header-item">Problems</span>
     <span onClick={()=>navigate('/ContestPage')} className="header-item">Contest</span>
-    <span onClick={()=>alert('Leaderboard will be added soon')} className="header-item">Leaderboard</span>
+    <span onClick={()=>Swal.fire({
+           icon: "info",
+        title: "Leaderboard",
+        text: "Leaderboard will be added soon",
+        timer: 1000,
+        showConfirmButton: false,
+        background: "#0b1b2b",
+        color: "#e2e8f0",
+        })} className="header-item">Leaderboard</span>
   </div>
 
   <div className="header-right">
