@@ -1,7 +1,8 @@
-#  Code Verdict(leetcode-clone) – Frontend
+## CodeVerdict(Leetcode-CLone)-Client
+This directory contains the frontend of the LeetCode Clone project, built with React and TypeScript. It provides a responsive UI for browsing problems, writing code, running solutions, and tracking user progress.
 
-This is the frontend application of Code Verdict, a full-stack coding practice platform inspired by modern online judges.  
-It provides a clean, responsive, and interactive interface for solving problems and tracking progress.
+## Live Demo :
+[https://codeVerdict5.vercel.app/](https://codeVerdict5.vercel.app/)
 
 ---
 

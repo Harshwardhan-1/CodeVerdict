@@ -90,7 +90,7 @@ code-verdict/
 ├── server/
 ├── assets/
 │   ├── screenshots/
-│   └── media/
+│   └── video/
 └── README.md
 ```
 
@@ -128,7 +128,6 @@ Create a `.env` file inside the `server` directory and add:
 ```
 PORT=5000
 MONGO_URL=your_database_connection_string
-COOKIE_SECRET=your_cookie_secret
 JWT_SECRET=your_jwt_secret
 FRONTEND=your_frontend_url
 VITE_BACKEND_URL=your_backend_url

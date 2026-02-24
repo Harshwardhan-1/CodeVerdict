@@ -92,6 +92,32 @@ http://localhost:3000
 ```
 
 ---
+
+
+
+
+# Environment Variables
+
+| Variable     | Description                          |
+| ------------ | ------------------------------------ |
+| `PORT`       | Server port number                    |
+| `MONGO_URI`  | MongoDB connection string             |
+| `JWT_SECRET` | Secret key used for JWT authentication |
+
+---
+
+## Best Practices
+
+- **Centralized error handling**  
+- **Use async/await** for asynchronous operations  
+- **JWT-based authentication middleware**  
+- **Follow MVC architecture**  
+- **Design APIs following RESTful principles**  
+- **Environment-based configuration** for flexibility
+
+---
+
+
 ## Author
 
 **Harshwardhan Yadav**  
